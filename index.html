@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ModGuard AI - Moderation Assistant</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo-box">
+        <div class="logo-icon">🛡️</div>
+        <div>
+          <h1>ModGuard AI</h1>
+          <p>AI-Powered Moderation Assistant</p>
+        </div>
+      </div>
+
+      <a href="#demo" class="nav-btn">Try Demo</a>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-content">
+        <span class="badge">Hackathon Project</span>
+        <h2>Smarter moderation for safer online communities.</h2>
+        <p>
+          ModGuard AI helps community moderators detect spam, toxicity,
+          suspicious posts, and content that needs human review.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#demo" class="primary-btn">Analyze Text</a>
+          <a href="#features" class="secondary-btn">View Features</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="scan-ring">
+          <span>AI</span>
+        </div>
+
+        <h3>Live Moderation Scan</h3>
+
+        <div class="mini-post safe">
+          <span>Safe</span>
+          <p>Helpful community discussion detected.</p>
+        </div>
+
+        <div class="mini-post warning">
+          <span>Needs Review</span>
+          <p>Possible promotional or suspicious content.</p>
+        </div>
+
+        <div class="mini-post danger">
+          <span>Toxic</span>
+          <p>Potential harmful language detected.</p>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section id="features" class="features-section">
+      <div class="section-title">
+        <span>Features</span>
+        <h2>What ModGuard AI can do</h2>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🚫</div>
+          <h3>Spam Detection</h3>
+          <p>Finds repeated promotional messages, suspicious links, and spam-like content.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">⚠️</div>
+          <h3>Toxicity Check</h3>
+          <p>Flags abusive, rude, or unsafe language that may harm community discussions.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <h3>Review Suggestions</h3>
+          <p>Gives simple explanations so moderators can make faster and fairer decisions.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Confidence Score</h3>
+          <p>Shows a score based on detected patterns to help prioritize moderation work.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="demo" class="demo-section">
+      <div class="section-title">
+        <span>Demo</span>
+        <h2>Try the moderation scanner</h2>
+        <p>
+          Enter a sample post or comment below. The demo uses rule-based AI logic
+          to classify the text.
+        </p>
+      </div>
+
+      <div class="demo-layout">
+        <div class="input-panel">
+          <label for="contentInput">Post or Comment</label>
+
+          <textarea
+            id="contentInput"
+            placeholder="Example: Check out my website now!!! Free money offer, click this link..."
+          ></textarea>
+
+          <div class="sample-buttons">
+            <button onclick="loadSample('safe')">Safe Sample</button>
+            <button onclick="loadSample('spam')">Spam Sample</button>
+            <button onclick="loadSample('toxic')">Toxic Sample</button>
+            <button onclick="loadSample('review')">Review Sample</button>
+          </div>
+
+          <button class="analyze-btn" onclick="analyzeContent()">
+            Analyze Content
+          </button>
+        </div>
+
+        <div class="result-panel">
+          <h3>Moderation Result</h3>
+
+          <div id="resultBox" class="result-box default">
+            <div class="result-status">Waiting for input</div>
+            <div class="score-wrap">
+              <div class="score-bar">
+                <div id="scoreFill" class="score-fill"></div>
+              </div>
+              <span id="scoreText">0%</span>
+            </div>
+            <p id="resultMessage">
+              Enter a post or comment and click Analyze Content.
+            </p>
+          </div>
+
+          <div class="details-card">
+            <h4>Detected Signals</h4>
+            <ul id="signalsList">
+              <li>No signals detected yet.</li>
+            </ul>
+          </div>
+
+          <div class="suggestion-card">
+            <h4>Moderator Suggestion</h4>
+            <p id="suggestionText">
+              No suggestion yet.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="workflow-section">
+      <div class="section-title">
+        <span>Workflow</span>
+        <h2>How it helps moderators</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <span>1</span>
+          <h3>Input Content</h3>
+          <p>Moderator enters a post or comment for review.</p>
+        </div>
+
+        <div class="timeline-item">
+          <span>2</span>
+          <h3>AI Scan</h3>
+          <p>The system checks text patterns, links, repeated words, and risky words.</p>
+        </div>
+
+        <div class="timeline-item">
+          <span>3</span>
+          <h3>Result</h3>
+          <p>The tool shows Safe, Needs Review, Spam, or Toxic status.</p>
+        </div>
+
+        <div class="timeline-item">
+          <span>4</span>
+          <h3>Human Decision</h3>
+          <p>Moderator makes the final decision based on the suggestion.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <h2>ModGuard AI</h2>
+    <p>Built to support safer and healthier online communities.</p>
+    <p class="footer-small">Made for hackathon demo purposes.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
